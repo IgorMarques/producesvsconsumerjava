@@ -1,6 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
 
 public class Consumer extends Thread{
 	
@@ -17,19 +14,17 @@ public class Consumer extends Thread{
 	@Override
 	public void run() {
 	
-		while(!stock.isFinished()){
+		while(true){
 			
 			lock.requestCS(myNumber);
 			
-			if (stock.removeProduct()) 
-				System.out.println("Produto removido!");
-			else
-				System.out.println("Estoque vazio!");
+			stock.removeProduct();
 			
 			yield();
 			
 			lock.releaseCS(myNumber);
 			yield();
+			
 		}
 		
 	}

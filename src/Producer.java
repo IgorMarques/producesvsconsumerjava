@@ -1,6 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
 
 public class Producer extends Thread{
 	
@@ -17,19 +14,17 @@ public class Producer extends Thread{
 	@Override
 	public void run() {
 	
-		while(!stock.isFinished()){
+		while(true){
 			
 			lock.requestCS(myNumber);
 			
-			if (stock.addProduct()) 
-				System.out.println("Produto adicionado!");
-			else
-				System.out.println("Estoque cheio!");
+			stock.addProduct();	
 			
 			yield();
 			
 			lock.releaseCS(myNumber);
 			yield();
+
 		}
 		
 	}

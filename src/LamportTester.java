@@ -33,6 +33,14 @@ public class LamportTester {
 		executor.execute(c3);	
 
 
+		try {
+			executor.awaitTermination(5, TimeUnit.SECONDS);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("fim");
 		
 	}
 

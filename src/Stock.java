@@ -21,27 +21,30 @@ public class Stock {
 	}
 	
 	public boolean isFull(){
+		
 		if(counter < capacity)
 			return false;
 		return true;
 	}
 	
-	public boolean addProduct(){
-		System.out.println(iterations++);
+	public void addProduct(){
+		iterations++;
 		if (isFull())
-			return false;
+			System.out.println("Estoque cheio!");
 		else
-			System.out.println(counter++);
-		return true;
+			System.out.println("Produto adicionado! Produtos em estoque: " + counter++);
+		
+		
 	}
 	
-	public boolean removeProduct(){
-		System.out.println(iterations++);
+	public void removeProduct(){
+		iterations++;
 		if (isEmpty())
-			return false;
+			System.out.println("Estoque vazio!");
 		else
-			System.out.println(counter--);
-		return true;
+			System.out.println("Produto removido! Produtos em estoque: " + counter--);
+		
+		
 	}
 
 	public boolean isFinished() {
